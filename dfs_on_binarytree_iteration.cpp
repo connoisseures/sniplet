@@ -21,9 +21,9 @@ void dfs_pre_in_order_iterative(TreeNode* root, int order){
                 crt=crt->left;
             }
             crt=stk.top();
-	        //inorder
-	        if(order==1) cout << crt->val << " ";
-	        stk.pop();
+	    //inorder
+	    if(order==1) cout << crt->val << " ";
+	    stk.pop();
             crt=crt->right;
         }while(!stk.empty() || crt);
         
