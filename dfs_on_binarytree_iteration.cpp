@@ -17,13 +17,13 @@ void dfs_pre_in_order_iterative(TreeNode* root, int order){
             while(crt){
                 stk.push(crt);
                 //preorder
-		        if(order==0) cout << crt->val << " ";
+		if(order==0) cout << crt->val << " ";
                 crt=crt->left;
             }
             crt=stk.top();
-	        //inorder
-	        if(order==1) cout << crt->val << " ";
-	        stk.pop();
+	    //inorder
+	    if(order==1) cout << crt->val << " ";
+	    stk.pop();
             crt=crt->right;
         }while(!stk.empty() || crt);
         
