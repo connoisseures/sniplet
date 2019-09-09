@@ -1,3 +1,10 @@
+/*
+time complexity: 
+log2 + log3 + ... logn = log(n!) < nlogn 
+log(n-2) + log(n-3) + ... 1 < nlogn
+total = nlogn
+*/
+
 #include <iostream>
 #include <queue>
 #include <vector>
@@ -13,6 +20,7 @@ Explanation: The optimal way to connect ropes is as follows
 3. Connect the ropes of length 18 and 12 (cost is 30).
 Total cost to connect the ropes is 10 + 18 + 30 = 58
 */
+
 
 struct comp {
     bool operator()(const int &a, const int &b) {
