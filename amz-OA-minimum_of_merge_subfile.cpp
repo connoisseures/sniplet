@@ -1,3 +1,28 @@
+/*
+Approach:
+Time complexity: 
+Space complexity: 
+*/
+
+class Solution {
+public:
+    int connectSticks(vector<int>& sticks) {
+        priority_queue<int, vector<int>, greater<int>> pq;
+        for (auto s : sticks) {
+            pq.push(s);
+        }
+        int cnt = 0;
+        while (pq.size() > 1) {
+            int mrg = pq.top(); pq.pop();
+            mrg += pq.top(); pq.pop();
+            pq.push(mrg);
+            cnt += mrg;
+        }
+        return cnt;
+    }
+};
+
+//---------------------------------
 #include <iostream>
 #include <queue>
 #include <vector>
