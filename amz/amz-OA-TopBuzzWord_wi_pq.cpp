@@ -25,6 +25,8 @@ m : the number of the quotes.
 n : the number of toys
 k : the number of topToys
 T(m*L + nlogk + k) = T(m*L)
+
+Space Complexity : O(n), where the size of the hashMap = n
 */
 
 string alpha_to_lowercase(const string &s) {
