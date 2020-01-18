@@ -8,13 +8,17 @@ using namespace std;
 In DFS tree, a vertex u is parent of another vertex v, if v is discovered by u. 
 In DFS tree, a vertex u is articulation point if one of the following two conditions is true.
 1) u is root of DFS tree and it has at least two children.
-2) u is not root of DFS tree and it has a child v such that no vertex in subtree rooted with v has a back edge to one of the ancestors (in DFS tree) of u.
+2) u is not root of DFS tree and it has a child v such that no vertex 
+in subtree rooted with v has a back edge to one of the ancestors (in DFS tree) of u.
+
 https://cp-algorithms.com/graph/cutpoints.html#toc-tgt-0
 
-Thought:
-We can use DFS to find the back edges and use the following rule to find the articulation points. 
-1) For a node, u, if there is no back from its descendants to one of its ancestors, and this node is not a root of DFS tree, this node is an articulation point.
-2) For a node, u, if it is the root of DFS tree and it has at least two children, it is also a articulation point. 
+Thought:
+We can use DFS to find the back edges and use the following rule to check the articulation points. 
+1) For a node, u, if there is no back from its descendants to one of its ancestors, 
+and this node is not a root of DFS tree, this node is an articulation point.
+2) For a node, u, if it is the root of DFS tree and it has at least two children, 
+it is a articulation point. 
 
 Time complexity : 
 T = O(V+E), where v is the number of nodes and E is the number of the edges. 

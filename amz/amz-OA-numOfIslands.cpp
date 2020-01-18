@@ -4,7 +4,9 @@ using namespace std;
 
 /*
 Thought:
-We use DFS to traverse the grid from the positions with value as 1. When we are visiting the islands, we change the value of the position as 0. The number of DFS we applied to the grid is the number of the islands. 
+We use DFS to traverse the grid from the positions with value as 1. 
+When we are visiting the islands, we change the value of the position as 0. 
+The number of DFS we applied to the grid is the number of the islands. 
 
 Time complexity : O(m*n), where m is the row size of the grid and n is the column size of the grid
 */

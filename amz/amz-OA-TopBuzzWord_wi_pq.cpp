@@ -12,12 +12,15 @@ using namespace std;
 /*
 Thought:
 The quotes are read word by word. The frequency of each toy is recorded by a hash table. 
-The format of the value in the hash value is as follows. 
+The format of the value in the hash table is as follows. 
 A bank is used to record the occurrence of each toy in the quotes. 
 The frequency of each toy in the quotes is recorded in the number system with the bank size as the base number. 
-Ex: elmo occurs 4 times in the quotes and appeared in 3 different quotes. The elmo's value in the hash table is 4*10+3 = 43, where bank size = 10.
+Ex: elmo occurs 4 times in the quotes and appeared in 3 different quotes. 
+The elmo's value in the hash table is 4*10+3 = 43, where bank size = 10.
 
-We can put each cell of the hash table into a priority queue (min-heap) with size = topToy. Then, we draw the top element of the priority queue one by one and put them into a list. The reverse of the list is the answer.
+We can put each cell of the hash table into a priority queue (min-heap) with size = topToy. 
+Then, we draw the top element of the priority queue one by one and put them into a list. 
+The reverse of the list is the answer.
 
 Time complexity analysis is as follows. 
 L : the average lenght of each quote.

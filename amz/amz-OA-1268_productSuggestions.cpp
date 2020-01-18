@@ -6,7 +6,10 @@ using namespace std;
 
 /*
 Thought:
-We sort the products. If a word is the prefix of aother word, they must be the neighbors in the sorted order. We can use binary search to find the first word which has the prefix matching the part of the searchWord. Then, we check if the next two words have the same prefiex or not.
+If a word is the prefix of aother word, they must be the neighbors in the sorted order. 
+First, we sort the products. 
+We can use binary search to find the first word which has the prefix matching the part of the searchWord. 
+Then, we check if the next two words have the same prefiex or not.
 
 Time complexity is bounded by O(C*logN)
 T : O(C*logN), where C = total length of list of string = L*N

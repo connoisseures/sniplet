@@ -9,7 +9,8 @@ we assume
 2. empty zombie, output -1
 
 Thought:
-We use BFS to traverse the grid and start from the positions with its value as 1. We modify the value of the position we are visiting as 1 until we visit all of the grids. 
+We use BFS to traverse the grid and start from the positions with its value as 1. 
+We modify the value of the position we are visiting as 1 until we visit all of the grids. 
 
 Time complexity:
 T = O(m*n), where m is row size of grid, n is the column size of grid
