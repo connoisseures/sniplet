@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_set> 
-#include <algorithm>
+//#include <algorithm>
 using namespace std;
 
 /*
@@ -9,8 +9,15 @@ In DFS tree, a vertex u is parent of another vertex v, if v is discovered by u.
 In DFS tree, a vertex u is articulation point if one of the following two conditions is true.
 1) u is root of DFS tree and it has at least two children.
 2) u is not root of DFS tree and it has a child v such that no vertex in subtree rooted with v has a back edge to one of the ancestors (in DFS tree) of u.
-
 https://cp-algorithms.com/graph/cutpoints.html#toc-tgt-0
+
+Thought:
+We can use DFS to find the back edges and use the following rule to find the articulation points. 
+1) For a node, u, if there is no back from its descendants to one of its ancestors, and this node is not a root of DFS tree, this node is an articulation point.
+2) For a node, u, if it is the root of DFS tree and it has at least two children, it is also a articulation point. 
+
+Time complexity : 
+T = O(V+E), where v is the number of nodes and E is the number of the edges. 
 */
 
 vector<vector<int>> buildGraph(int n, vector<pair<int, int>> &edges) {
@@ -39,6 +46,8 @@ void dfs(int node, int parent, int &time, vector<int> &low, vector<int> &dis, ve
             dfs(neighbor, node, time, low, dis, visited, graph, res);
             low[node] = min(low[node], low[neighbor]);
             if (low[neighbor] >= dis[node] && parent != -1) {
+                //cout << node << " " << neighbor << endl;
+                //cout << low[node] << ";" << dis[neighbor] << endl;
                 res.insert(node);
             }
             children++;
@@ -51,18 +60,22 @@ void dfs(int node, int parent, int &time, vector<int> &low, vector<int> &dis, ve
 }
 
 vector<int> findCutNode(int numNodes, vector<pair<int, int>> &edges) {
+    //corner case, a single edge 
+    if (numNodes == 2) return {edges[0].first};
+
     vector<vector<int>> graph = buildGraph(numNodes, edges);
     vector<int> low(numNodes, -1);
     vector<int> dis(numNodes, -1);
-    vector<bool> visited(numNodes, false);
+    vector<bool> visited(numNodes, false);   
     int time = 1;
     unordered_set<int> res;
     dfs(1, -1, time, low, dis, visited, graph, res);
+    
     vector<int> cutNodes;
     for (auto it = res.begin(); it != res.end(); ++it) {
         cutNodes.push_back(*it);
     }
-    sort(cutNodes.begin(), cutNodes.end());
+    //sort(cutNodes.begin(), cutNodes.end());
     return cutNodes;
 }
 
@@ -85,4 +98,11 @@ int main() {
 	vector<pair<int, int>> links2 = {{0, 1}, {1, 2}, {2, 0}};
     vector<int> res2 = findCutNode(numRouters2, links2);
     print_vec(res2);
+
+    cout << "graph3" << endl;
+    int numRouters3 = 2;
+	vector<pair<int, int>> links3 = {{0, 1}};
+    vector<int> res3 = findCutNode(numRouters3, links3);
+    print_vec(res3);
 }
+
